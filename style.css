@@ -1,28 +1,55 @@
 :root {
   --bg: #0f1220;
   --card: #161a2b;
-  --muted: #8f9bb3;
   --text: #e7e9f5;
+  --muted: #8f9bb3;
   --accent: #6ea8ff;
   --ok: #49d17f;
   --warn: #ffc857;
+
+  /* Table borders */
+  --table-border: rgba(255, 255, 255, 0.12);
+  --table-header: rgba(255, 255, 255, 0.08);
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  background: var(--bg);
+  color: var(--text);
+  transition: all 0.3s ease;
+}
+
+body.day {
+  --bg: #f0f2f5;
+  --card: #ffffff;
+  --text: #222222;
+  --muted: #555555;
+  --accent: #6ea8ff;
+  --ok: #49d17f;
+  --warn: #ffc857;
+  --table-border: rgba(0, 0, 0, 0.15);
+  --table-header: rgba(0, 0, 0, 0.1);
+}
+body.day #pause:hover {
+  background: #ffb600;
+}
+
+body.day #pause {
+  background: #e95744;
+  color: #332400;
+  border: none;
 }
 
 * {
   box-sizing: border-box;
 }
 
-body {
-  margin: 0;
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
-  color: var(--text);
-  background: linear-gradient(180deg, #0e1120, #0b0d18 40%, #0a0c16);
-}
-
 header {
-  padding: 28px 20px;
+  padding: 20px;
   text-align: center;
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  position: relative;
 }
 
 h1 {
@@ -33,6 +60,27 @@ h1 {
 .sub {
   color: var(--muted);
   font-size: 14px;
+}
+
+.controls {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.controls button {
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  padding: 6px 12px;
+  background: var(--accent);
+  color: #081428;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.controls button:hover {
+  transform: translateY(-2px);
 }
 
 main {
@@ -53,16 +101,13 @@ main {
 }
 
 .card {
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.05),
-    rgba(255, 255, 255, 0.03)
-  );
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--card);
+  color: var(--text);
   border-radius: 14px;
   padding: 18px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35),
-    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  margin: 20px 0;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
 }
 
 h2 {
@@ -90,18 +135,24 @@ h2 {
 .tab {
   cursor: pointer;
   padding: 8px 12px;
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  user-select: none;
-  -webkit-user-select: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid transparent;
   transition: 0.15s;
+  user-select: none;
 }
 
 .tab.active {
   background: var(--accent);
   color: #081428;
-  border-color: transparent;
+}
+
+.tab-content {
+  margin-top: 12px;
+}
+
+.tabpane[hidden] {
+  display: none !important;
 }
 
 ol {
@@ -123,17 +174,18 @@ table {
   border-collapse: collapse;
   margin-top: 10px;
   font-size: 14px;
+  border: 1px solid var(--table-border);
 }
 
 th,
 td {
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid var(--table-border);
   padding: 8px;
   text-align: center;
 }
 
 th {
-  background: rgba(255, 255, 255, 0.08);
+  background: var(--table-header);
 }
 
 .hint {
@@ -159,7 +211,7 @@ th {
     rgba(110, 168, 255, 0.25),
     transparent 70%
   );
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid var(--table-border);
   border-radius: 16px;
   padding: 24px 16px;
   min-height: 160px;
@@ -188,7 +240,7 @@ th {
 
 button {
   cursor: pointer;
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  border: 1px solid var(--table-border);
   background: rgba(255, 255, 255, 0.06);
   color: var(--text);
   padding: 10px 30px;
@@ -231,7 +283,7 @@ button.warn {
   width: 100%;
   padding: 8px 10px;
   border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  border: 1px solid var(--table-border);
   background: rgba(255, 255, 255, 0.06);
   color: var(--text);
 }
@@ -243,32 +295,19 @@ footer {
   font-size: 12px;
 }
 
-.cal {
-  font-weight: 600;
-}
-
-.tabpane {
-  display: block;
-}
-.tab-content {
-  margin-top: 12px;
-}
-
-.tabpane[hidden] {
-  display: none !important;
-}
-
-.tabs {
-  display: flex;
-  gap: 8px;
-}
-.tab {
-  cursor: pointer;
+.cfg input {
+  width: 100%;
   padding: 8px 12px;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.04);
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  background: #fff;
+  color: #222;
+  font-weight: 500;
+  transition: 0.2s;
 }
-.tab.active {
-  background: var(--accent);
-  color: #081428;
+
+.cfg input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 8px rgba(110, 168, 255, 0.3);
 }
