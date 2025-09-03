@@ -13,162 +13,163 @@
     <script type="module" src="./script.js"></script>
   </head>
   <body>
-    <heder>
+    <header>
       <h1>HIIT: 4-Week Plan + Timer</h1>
       <div class="sub">
-        Format of one round:
-        <b>60s work |</b>
-        <b>2020s rest |</b>
-        <b>10 rounds</b>
+        One round: <b>60s work |</b> <b>20s rest |</b> <b>10 rounds</b>
       </div>
-    </heder>
+    </header>
+
     <main class="grid">
+      <!-- Workout Complexes -->
       <section class="card">
-        <h2>Комплекси вправ</h2>
+        <h2>Workout Combos</h2>
         <div class="tabs">
-          <div class="tab active" data-tab="jump">Зі стрибками</div>
-          <div class="tab" data-tab="low">Без стрибків (тихо)</div>
+          <div class="tab active" data-tab="jump">High-Impact</div>
+          <div class="tab" data-tab="low">Low-Impact</div>
         </div>
+
         <div class="jump">
-          <span class="pill">10 хв</span>
+          <span class="pill">10 min</span>
           <span class="pill">40/20</span>
           <ol>
-            <li>Берпі</li>
+            <li>Burpees</li>
             <li>Mountain Climbers</li>
-            <li>Стрибки у присіданні (Jump Squats)</li>
-            <li>Випади зі стрибком</li>
-            <li>Віджимання + стрибок</li>
-            <li>Спрінт на місці з високим підніманням колін</li>
-            <li>Планка з поворотом корпусу (Plank Twist)</li>
-            <li>Стрибки «зірочка» (Jumping Jacks)</li>
-            <li>Присідання + викид рук вперед</li>
-            <li><b>Фініш — Берпі (максимум)</b></li>
+            <li>Jump Squats</li>
+            <li>Jumping Lunges</li>
+            <li>Push-Up + Jump</li>
+            <li>High-Knee Sprint in Place</li>
+            <li>Plank Twist</li>
+            <li>Jumping Jacks</li>
+            <li>Squat + Arm Throw</li>
+            <li><b>Finish Strong — Burpees Max</b></li>
           </ol>
         </div>
-        <div id="low" class="tabpane" hidden="">
-          <span class="pill">10 хв</span><span class="pill">40/20</span>
+
+        <div id="low" class="tabpane" hidden>
+          <span class="pill">10 min</span>
+          <span class="pill">40/20</span>
           <ol>
-            <li>Берпі без стрибка</li>
+            <li>Burpees (No Jump)</li>
             <li>Mountain Climbers</li>
-            <li>Присідання з напруженням</li>
-            <li>Зворотні випади</li>
-            <li>Віджимання + підйом коліна</li>
-            <li>Марш із високим підніманням колін (без бігу)</li>
-            <li>Планка з дотиком плечей</li>
-            <li>Arm Jacks (лише руками)</li>
-            <li>Присідання з поворотом корпусу</li>
-            <li><b>Фініш — Планка: коліна до грудей</b></li>
+            <li>Controlled Squats</li>
+            <li>Reverse Lunges</li>
+            <li>Push-Up + Knee Lift</li>
+            <li>High-Knee March</li>
+            <li>Plank Shoulder Tap</li>
+            <li>Arm Jacks</li>
+            <li>Squat + Torso Twist</li>
+            <li><b>Finish Strong — Plank Knee Tucks</b></li>
           </ol>
           <p class="hint">
-            Орієнтовно: <span class="cal">120–160 ккал / 10 хв</span> (при вазі
-            ~95 кг, тиха квартира-friendly версія).
+            Approx: <span class="cal">120–160 kcal / 10 min</span> (~95kg,
+            apartment-friendly)
           </p>
         </div>
       </section>
 
+      <!-- Interval Timer -->
       <section class="card">
-        <h2>Інтервальний таймер</h2>
+        <h2>Interval Timer</h2>
         <div class="timer">
           <div class="screen">
             <div>
               <div class="time" id="time">00:40</div>
-              <span class="phase" id="phase">Раунд 1/10 — Робота</span>
+              <span class="phase" id="phase">Round 1/10 — Work</span>
             </div>
           </div>
 
           <div class="row">
-            <button class="primary" id="start">Старт</button>
-            <button id="pause">Пауза</button>
-            <button class="warn" id="reset">Скинути</button>
+            <button class="primary" id="start">Start</button>
+            <button id="pause">Pause</button>
+            <button class="warn" id="reset">Reset</button>
           </div>
 
           <div class="cfg">
             <div>
-              <label>Сек. роботи</label>
+              <label>Work (sec)</label>
               <input type="number" id="work" value="40" min="5" max="300" />
             </div>
             <div>
-              <label>Сек. відпочинку</label>
+              <label>Rest (sec)</label>
               <input type="number" id="rest" value="20" min="0" max="300" />
             </div>
             <div>
-              <label>К-ть раундів</label>
+              <label>Rounds</label>
               <input type="number" id="rounds" value="10" min="1" max="50" />
             </div>
           </div>
           <p class="hint">
-            Порада: тримай пульс у зоні 70–85% від максимального для
-            жироспалювання.
+            Tip: Keep your heart rate at 70–85% max for fat burn.
           </p>
         </div>
       </section>
 
+      <!-- 4-Week Schedule -->
       <section class="card" style="grid-column: 1/-1">
-        <h2>Графік на 4 тижні</h2>
+        <h2>4-Week Schedule</h2>
         <div class="hint">
-          Рекомендація: 4 тренування на тиждень, чергуючи комплекси.
+          Recommendation: 4 workouts/week, alternate between combos.
         </div>
         <table>
           <thead>
             <tr>
-              <th>Тиждень</th>
-              <th>Пн</th>
-              <th>Вт</th>
-              <th>Ср</th>
-              <th>Чт</th>
-              <th>Пт</th>
-              <th>Сб</th>
-              <th>Нд</th>
+              <th>Week</th>
+              <th>Mon</th>
+              <th>Tue</th>
+              <th>Wed</th>
+              <th>Thu</th>
+              <th>Fri</th>
+              <th>Sat</th>
+              <th>Sun</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td>1</td>
-              <td>Стрибки</td>
-              <td>Відпоч.</td>
-              <td>Low-impact</td>
-              <td>Відпоч.</td>
-              <td>Стрибки</td>
-              <td>Low-impact</td>
-              <td>Відпоч.</td>
+              <td>High-Impact</td>
+              <td>Rest</td>
+              <td>Low-Impact</td>
+              <td>Rest</td>
+              <td>High-Impact</td>
+              <td>Low-Impact</td>
+              <td>Rest</td>
             </tr>
             <tr>
               <td>2</td>
-              <td>Low-impact</td>
-              <td>Відпоч.</td>
-              <td>Стрибки</td>
-              <td>Відпоч.</td>
-              <td>Low-impact</td>
-              <td>Стрибки</td>
-              <td>Відпоч.</td>
+              <td>Low-Impact</td>
+              <td>Rest</td>
+              <td>High-Impact</td>
+              <td>Rest</td>
+              <td>Low-Impact</td>
+              <td>High-Impact</td>
+              <td>Rest</td>
             </tr>
             <tr>
               <td>3</td>
-              <td>Стрибки</td>
-              <td>Відпоч.</td>
-              <td>Low-impact</td>
-              <td>Відпоч.</td>
-              <td>Стрибки</td>
-              <td>Low-impact</td>
-              <td>Відпоч.</td>
+              <td>High-Impact</td>
+              <td>Rest</td>
+              <td>Low-Impact</td>
+              <td>Rest</td>
+              <td>High-Impact</td>
+              <td>Low-Impact</td>
+              <td>Rest</td>
             </tr>
             <tr>
               <td>4</td>
-              <td>Low-impact</td>
-              <td>Відпоч.</td>
-              <td>Стрибки</td>
-              <td>Відпоч.</td>
-              <td>Low-impact</td>
-              <td>Стрибки</td>
-              <td>Відпоч.</td>
+              <td>Low-Impact</td>
+              <td>Rest</td>
+              <td>High-Impact</td>
+              <td>Rest</td>
+              <td>Low-Impact</td>
+              <td>High-Impact</td>
+              <td>Rest</td>
             </tr>
           </tbody>
         </table>
       </section>
     </main>
 
-    <footer>
-      Зроблено з любов’ю до руху. Пам’ятай про розминку 3–5 хв і заминку 3–5 хв.
-    </footer>
+    <footer>Remember: 3–5 min warm-up + 3–5 min cool-down.</footer>
   </body>
 </html>
