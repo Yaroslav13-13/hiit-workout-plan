@@ -24,16 +24,151 @@
     </heder>
     <main class="grid">
       <section class="card">
-        <h2></h2>
+        <h2>Комплекси вправ</h2>
         <div class="tabs">
-          <div class="tab active" data-tab="jump"></div>
-          <div class="tab" data-tab="low"></div>
+          <div class="tab active" data-tab="jump">Зі стрибками</div>
+          <div class="tab" data-tab="low">Без стрибків (тихо)</div>
         </div>
-        <div class="jump"></div>
-        <div class="low"></div>
+        <div class="jump">
+          <span class="pill">10 хв</span>
+          <span class="pill">40/20</span>
+          <ol>
+            <li>Берпі</li>
+            <li>Mountain Climbers</li>
+            <li>Стрибки у присіданні (Jump Squats)</li>
+            <li>Випади зі стрибком</li>
+            <li>Віджимання + стрибок</li>
+            <li>Спрінт на місці з високим підніманням колін</li>
+            <li>Планка з поворотом корпусу (Plank Twist)</li>
+            <li>Стрибки «зірочка» (Jumping Jacks)</li>
+            <li>Присідання + викид рук вперед</li>
+            <li><b>Фініш — Берпі (максимум)</b></li>
+          </ol>
+        </div>
+        <div id="low" class="tabpane" hidden="">
+          <span class="pill">10 хв</span><span class="pill">40/20</span>
+          <ol>
+            <li>Берпі без стрибка</li>
+            <li>Mountain Climbers</li>
+            <li>Присідання з напруженням</li>
+            <li>Зворотні випади</li>
+            <li>Віджимання + підйом коліна</li>
+            <li>Марш із високим підніманням колін (без бігу)</li>
+            <li>Планка з дотиком плечей</li>
+            <li>Arm Jacks (лише руками)</li>
+            <li>Присідання з поворотом корпусу</li>
+            <li><b>Фініш — Планка: коліна до грудей</b></li>
+          </ol>
+          <p class="hint">
+            Орієнтовно: <span class="cal">120–160 ккал / 10 хв</span> (при вазі
+            ~95 кг, тиха квартира-friendly версія).
+          </p>
+        </div>
       </section>
-      <section class="card"></section>
-      <section class="card"></section>
+
+      <section class="card">
+        <h2>Інтервальний таймер</h2>
+        <div class="timer">
+          <div class="screen">
+            <div>
+              <div class="time" id="time">00:40</div>
+              <span class="phase" id="phase">Раунд 1/10 — Робота</span>
+            </div>
+          </div>
+
+          <div class="row">
+            <button class="primary" id="start">Старт</button>
+            <button id="pause">Пауза</button>
+            <button class="warn" id="reset">Скинути</button>
+          </div>
+
+          <div class="cfg">
+            <div>
+              <label>Сек. роботи</label>
+              <input type="number" id="work" value="40" min="5" max="300" />
+            </div>
+            <div>
+              <label>Сек. відпочинку</label>
+              <input type="number" id="rest" value="20" min="0" max="300" />
+            </div>
+            <div>
+              <label>К-ть раундів</label>
+              <input type="number" id="rounds" value="10" min="1" max="50" />
+            </div>
+          </div>
+          <p class="hint">
+            Порада: тримай пульс у зоні 70–85% від максимального для
+            жироспалювання.
+          </p>
+        </div>
+      </section>
+
+      <section class="card" style="grid-column: 1/-1">
+        <h2>Графік на 4 тижні</h2>
+        <div class="hint">
+          Рекомендація: 4 тренування на тиждень, чергуючи комплекси.
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Тиждень</th>
+              <th>Пн</th>
+              <th>Вт</th>
+              <th>Ср</th>
+              <th>Чт</th>
+              <th>Пт</th>
+              <th>Сб</th>
+              <th>Нд</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Стрибки</td>
+              <td>Відпоч.</td>
+              <td>Low-impact</td>
+              <td>Відпоч.</td>
+              <td>Стрибки</td>
+              <td>Low-impact</td>
+              <td>Відпоч.</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Low-impact</td>
+              <td>Відпоч.</td>
+              <td>Стрибки</td>
+              <td>Відпоч.</td>
+              <td>Low-impact</td>
+              <td>Стрибки</td>
+              <td>Відпоч.</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Стрибки</td>
+              <td>Відпоч.</td>
+              <td>Low-impact</td>
+              <td>Відпоч.</td>
+              <td>Стрибки</td>
+              <td>Low-impact</td>
+              <td>Відпоч.</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Low-impact</td>
+              <td>Відпоч.</td>
+              <td>Стрибки</td>
+              <td>Відпоч.</td>
+              <td>Low-impact</td>
+              <td>Стрибки</td>
+              <td>Відпоч.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
     </main>
+
+    <footer>
+      Зроблено з любов’ю до руху. Пам’ятай про розминку 3–5 хв і заминку 3–5 хв.
+    </footer>
   </body>
 </html>
