@@ -27,6 +27,7 @@ const phaseEl = document.getElementById("phase");
 const startBtn = document.getElementById("start");
 const pauseBtn = document.getElementById("pause");
 const resetBtn = document.getElementById("reset");
+const subtitleEl = document.getElementById("subtitle");
 const workIn = document.getElementById("work");
 const restIn = document.getElementById("rest");
 const roundsIn = document.getElementById("rounds");
@@ -159,6 +160,29 @@ function stopTimer() {
 );
 
 // =====================
+// Update Subtitle
+// =====================
+function updateSubtitle() {
+  const work = +workIn.value || 60;
+  const rest = +restIn.value || 20;
+  const rounds = +roundsIn.value || 10;
+
+  // підрахунок часу (в хвилинах)
+  const totalSeconds = (work + rest) * rounds;
+  const totalMin = Math.ceil(totalSeconds / 60);
+
+  subtitleEl.innerHTML = `One round: <b>${work}s work |</b> <b>${rest}s rest |</b> <b>${rounds} rounds</b> &nbsp; (${totalMin} min)`;
+}
+
+// =====================
+// Слухачі на інпутах
+// =====================
+[workIn, restIn, roundsIn].forEach((input) =>
+  input.addEventListener("input", updateSubtitle)
+);
+
+// =====================
 // Initialize Screen
 // =====================
 updateScreen();
+updateSubtitle();
